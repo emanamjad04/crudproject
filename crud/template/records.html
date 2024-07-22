@@ -1,0 +1,40 @@
+{% extends './base.html' %}
+{% block content %}
+<div>
+    <center><h1>All records</h1></center>
+</div>
+
+<div>
+    <table>
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>CITY</th>
+                <th>CONTACT</th>
+            </tr>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td>{{ record.id }}</td>
+                    <td>{{ record.name }}</td>
+                    <td>{{ record.email }}</td>
+                    <td>{{ record.city }}</td>
+                    <td>{{ record.contact }}</td>
+                    <td><a href="{% url 'edit' record.id %}">Edit</a></td>
+                    <td>
+                        <form action="{% url 'delete' record.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        
+        </thread>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends './base.html' %}
+{% block content %}
+    <h1>home page hehe</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="feild">
+            <label for="" class="form-label">Name</label>
+            <input type="text" name="name" placeholder="Enter Name">
+        </div>
+        <div class="feild">
+            <label for="" class="form-label">Email</label>
+            <input type="text" name="email" placeholder="Enter Email">
+        </div>
+        <div class="feild">
+            <label for="" class="form-label">City</label>
+            <input type="text" name="city" placeholder="Enter City">
+        </div>
+        <div class="feild">
+            <label for="" class="form-label">Contact</label>
+            <input type="text" name="contact" placeholder="Enter Contact">
+        </div>
+        <div class="feild">
+            <input type="submit"  value="done">
+        </div>
+    </form>
+    <div>
+        <a href="{% url 'records' %}"><h2>show record</h2></a>
+    </div>
+
+    {% endblock %}
